@@ -1,117 +1,2211 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SPORTS WORLD – Trung Tâm Thể Thao Đỉnh Cao</title>
-  <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/857/857455.png" type="image/png" />
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&family=Poppins:wght@300;400;600;800&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Internet & Cuộc Sống Hiện Đại | Dấu Ấn Kỷ Nguyên Số</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+    <style>
+        /* ==========================================================================
+           GLOBAL VARIABLES & RESET
+           ========================================================================== */
+        :root {
+            --bg-dark: #070b19;
+            --bg-card: rgba(17, 25, 40, 0.75);
+            --text-main: #e2e8f0;
+            --text-muted: #94a3b8;
+            --primary: #3b82f6;
+            --primary-glow: rgba(59, 130, 246, 0.5);
+            --secondary: #8b5cf6;
+            --danger: #ef4444;
+            --danger-glow: rgba(239, 68, 68, 0.5);
+            --success: #10b981;
+            --glass-border: rgba(255, 255, 255, 0.08);
+            --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+            --neon-border: 0 0 10px var(--primary-glow), inset 0 0 10px var(--primary-glow);
+            --font-sans: 'Inter', sans-serif;
+            --font-serif: 'Playfair Display', serif;
+            --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
 
-  <style>
-    /* ===== CSS VARIABLES ===== */
-    :root {
-      --neon-blue:   #00cfff;
-      --neon-purple: #b300ff;
-      --neon-pink:   #ff0099;
-      --neon-green:  #00ff88;
-      --bg-dark:     #050510;
-      --bg-card:     #0d0d24;
-      --bg-glass:    rgba(255,255,255,0.05);
-      --text-light:  #e0e6ff;
-      --text-dim:    #7a85b0;
-      --border-glow: rgba(0,207,255,0.4);
-      --font-main:   'Poppins', sans-serif;
-      --font-title:  'Montserrat', sans-serif;
-      --font-accent: 'Rajdhani', sans-serif;
-    }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    /* ===== RESET & BASE ===== */
-    *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      background: var(--bg-dark);
-      color: var(--text-light);
-      font-family: var(--font-main);
-      overflow-x: hidden;
-    }
-    a { text-decoration: none; color: inherit; }
-    img { max-width: 100%; display: block; }
+        body {
+            font-family: var(--font-sans);
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            overflow-x: hidden;
+            line-height: 1.7;
+            scroll-behavior: smooth;
+            background-image: 
+                radial-gradient(circle at 15% 50%, rgba(59, 130, 246, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 85% 30%, rgba(139, 92, 246, 0.08) 0%, transparent 50%);
+            background-attachment: fixed;
+        }
 
-    /* ===== SCROLLBAR ===== */
-    ::-webkit-scrollbar { width: 6px; }
-    ::-webkit-scrollbar-track { background: #090920; }
-    ::-webkit-scrollbar-thumb { background: var(--neon-blue); border-radius: 3px; }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
 
-    /* ===== KEYFRAMES ===== */
-    @keyframes rgbBorder {
-      0%   { border-color: var(--neon-blue); box-shadow: 0 0 18px var(--neon-blue); }
-      33%  { border-color: var(--neon-purple); box-shadow: 0 0 18px var(--neon-purple); }
-      66%  { border-color: var(--neon-pink); box-shadow: 0 0 18px var(--neon-pink); }
-      100% { border-color: var(--neon-blue); box-shadow: 0 0 18px var(--neon-blue); }
-    }
-    @keyframes rgbText {
-      0%   { color: var(--neon-blue); }
-      33%  { color: var(--neon-purple); }
-      66%  { color: var(--neon-pink); }
-      100% { color: var(--neon-blue); }
-    }
-    @keyframes gradientBG {
-      0%   { background-position: 0% 50%; }
-      50%  { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-    @keyframes floatUp {
-      0%, 100% { transform: translateY(0); }
-      50%       { transform: translateY(-10px); }
-    }
-    @keyframes pulseGlow {
-      0%, 100% { box-shadow: 0 0 10px var(--neon-blue), 0 0 30px rgba(0,207,255,0.3); }
-      50%       { box-shadow: 0 0 25px var(--neon-blue), 0 0 60px rgba(0,207,255,0.6); }
-    }
-    @keyframes lightRun {
-      0%   { left: -100%; }
-      100% { left: 200%; }
-    }
-    @keyframes fadeInUp {
-      from { opacity:0; transform: translateY(40px); }
-      to   { opacity:1; transform: translateY(0); }
-    }
-    @keyframes slideInLeft {
-      from { opacity:0; transform: translateX(-60px); }
-      to   { opacity:1; transform: translateX(0); }
-    }
-    @keyframes neonPulse {
-      0%, 100% { text-shadow: 0 0 8px var(--neon-blue), 0 0 20px var(--neon-blue); }
-      50%       { text-shadow: 0 0 20px var(--neon-blue), 0 0 50px var(--neon-blue), 0 0 80px var(--neon-purple); }
-    }
-    @keyframes spin {
-      to { transform: rotate(360deg); }
-    }
-    @keyframes barLoad {
-      0%   { width: 0; }
-      100% { width: 100%; }
-    }
-    @keyframes typewriter {
-      from { width: 0; }
-      to   { width: 100%; }
-    }
-    @keyframes blink {
-      50% { border-color: transparent; }
-    }
-    @keyframes particleFloat {
-      0%   { transform: translateY(0) translateX(0) scale(1); opacity: 0.7; }
-      100% { transform: translateY(-120vh) translateX(30px) scale(0.3); opacity: 0; }
-    }
+        ul {
+            list-style: none;
+        }
 
-    /* ===== UTILITY ===== */
-    .section-title {
-      font-family: var(--font-title);
-      font-size: clamp(1.8rem, 4vw, 2.8rem);
-      font-weight: 900;
-      text-align: center;
-      margin-bottom: 0.5rem;
-      animation: neonPulse 3s ease-in-out infinite;
-      color: var(--neon-blue);
-    }
-    .section-
+        /* Typography & Literary Styles */
+        h1, h2, h3, h4 {
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        .text-gradient {
+            background: linear-gradient(135deg, #60a5fa, #c084fc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            border-radius: 2px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 4rem;
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+
+        /* Layout Utilities */
+        .container {
+            width: 100%;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        section {
+            padding: 6rem 0;
+            position: relative;
+        }
+
+        /* Glassmorphism System */
+        .glass-panel {
+            background: var(--bg-card);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--glass-border);
+            border-radius: 1.5rem;
+            box-shadow: var(--glass-shadow);
+        }
+
+        /* ==========================================================================
+           ANIMATION KEYFRAMES
+           ========================================================================== */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes floatObj {
+            0% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+            100% { transform: translateY(0px) rotate(0deg); }
+        }
+
+        @keyframes pulseGlow {
+            0% { box-shadow: 0 0 10px rgba(239, 68, 68, 0.2); }
+            50% { box-shadow: 0 0 25px rgba(239, 68, 68, 0.6); }
+            100% { box-shadow: 0 0 10px rgba(239, 68, 68, 0.2); }
+        }
+
+        @keyframes borderFlow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes particleMove {
+            from { transform: translateY(0) scale(1); opacity: 0.5; }
+            to { transform: translateY(-100vh) scale(0); opacity: 0; }
+        }
+
+        /* Scroll Reveal Utility */
+        .reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ==========================================================================
+           1. HEADER PRO
+           ========================================================================== */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: var(--transition-smooth);
+            padding: 1.5rem 0;
+        }
+
+        header.sticky {
+            background: rgba(7, 11, 25, 0.85);
+            backdrop-filter: blur(20px);
+            padding: 1rem 0;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            z-index: 1001;
+        }
+
+        .logo svg {
+            width: 32px;
+            height: 32px;
+            fill: url(#grad1);
+            animation: floatObj 4s ease-in-out infinite;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+        }
+
+        .nav-links a {
+            font-size: 1rem;
+            font-weight: 500;
+            position: relative;
+            padding: 0.5rem 0;
+            transition: color 0.3s;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .menu-toggle {
+            display: none;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        .bar {
+            width: 25px;
+            height: 2px;
+            background: #fff;
+            margin: 5px 0;
+            transition: var(--transition-smooth);
+        }
+
+        /* ==========================================================================
+           2. HERO SECTION
+           ========================================================================== */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding-top: 80px;
+            overflow: hidden;
+        }
+
+        .hero-bg-elements {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .circle-blur {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(100px);
+            z-index: -1;
+        }
+
+        .cb-1 {
+            width: 400px;
+            height: 400px;
+            background: rgba(59, 130, 246, 0.2);
+            top: 10%;
+            left: -100px;
+        }
+
+        .cb-2 {
+            width: 500px;
+            height: 500px;
+            background: rgba(139, 92, 246, 0.2);
+            bottom: -100px;
+            right: -150px;
+        }
+
+        .hero-content {
+            text-align: center;
+            z-index: 1;
+            max-width: 900px;
+        }
+
+        .hero h1 {
+            font-size: clamp(3rem, 5vw, 5rem);
+            margin-bottom: 1.5rem;
+            letter-spacing: -1px;
+            animation: slideUp 1s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+
+        .hero p {
+            font-size: clamp(1.1rem, 2vw, 1.3rem);
+            color: var(--text-muted);
+            margin-bottom: 3rem;
+            animation: slideUp 1.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+            animation-fill-mode: both;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            animation: slideUp 1.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+            animation-fill-mode: both;
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            border-radius: 3rem;
+            font-weight: 600;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            position: relative;
+            overflow: hidden;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: #fff;
+            border: none;
+            box-shadow: 0 4px 15px var(--primary-glow);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px var(--primary-glow);
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%;
+            width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .btn-primary:hover::before {
+            left: 100%;
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: #fff;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .btn-outline:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: #fff;
+            transform: translateY(-3px);
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            opacity: 0.7;
+            animation: fadeIn 2s infinite alternate;
+        }
+
+        .mouse {
+            width: 30px;
+            height: 50px;
+            border: 2px solid #fff;
+            border-radius: 15px;
+            position: relative;
+        }
+
+        .wheel {
+            width: 4px;
+            height: 8px;
+            background: #fff;
+            border-radius: 2px;
+            position: absolute;
+            top: 8px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: scrollWheel 2s infinite;
+        }
+
+        @keyframes scrollWheel {
+            0% { top: 8px; opacity: 1; }
+            100% { top: 25px; opacity: 0; }
+        }
+
+        /* ==========================================================================
+           3. GIỚI THIỆU INTERNET (INFO CARDS)
+           ========================================================================== */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .info-card {
+            padding: 2.5rem 2rem;
+            position: relative;
+            transition: var(--transition-smooth);
+            cursor: pointer;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .info-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: linear-gradient(135deg, rgba(255,255,255,0.1), transparent);
+            opacity: 0;
+            transition: opacity 0.4s;
+            z-index: 0;
+        }
+
+        .info-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+            border-color: rgba(59, 130, 246, 0.5);
+        }
+
+        .info-card:hover::before {
+            opacity: 1;
+        }
+
+        .info-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(59, 130, 246, 0.1);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--primary);
+            z-index: 1;
+            transition: transform 0.4s;
+        }
+
+        .info-card:hover .info-icon {
+            transform: rotateY(180deg);
+            background: var(--primary);
+            color: #fff;
+        }
+
+        .info-card h3 {
+            font-size: 1.5rem;
+            z-index: 1;
+        }
+
+        .info-card p {
+            color: var(--text-muted);
+            z-index: 1;
+            flex-grow: 1;
+        }
+
+        .expand-btn {
+            background: none;
+            border: none;
+            color: var(--primary);
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+            z-index: 1;
+            align-self: flex-start;
+        }
+
+        .expand-btn svg {
+            transition: transform 0.3s;
+        }
+
+        .info-card:hover .expand-btn svg {
+            transform: translateX(5px);
+        }
+
+        .card-detail {
+            display: none;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--glass-border);
+            color: #e2e8f0;
+            font-size: 0.95rem;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .card-detail.active {
+            display: block;
+        }
+
+        /* ==========================================================================
+           4. INTERNET TRONG CUỘC SỐNG (GRID SECTION)
+           ========================================================================== */
+        .life-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .life-item {
+            border-radius: 1.5rem;
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+            group: hover;
+            height: 350px;
+        }
+
+        .life-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .life-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(7, 11, 25, 0.95) 0%, rgba(7, 11, 25, 0.4) 50%, transparent 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 2rem;
+            transition: var(--transition-smooth);
+        }
+
+        .life-item:hover .life-img {
+            transform: scale(1.1);
+        }
+
+        .life-item:hover .life-overlay {
+            background: linear-gradient(to top, rgba(7, 11, 25, 0.98) 0%, rgba(7, 11, 25, 0.7) 60%, transparent 100%);
+        }
+
+        .life-title {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            transform: translateY(20px);
+            transition: transform 0.4s ease;
+        }
+
+        .life-desc {
+            color: var(--text-muted);
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.4s ease;
+            max-height: 0;
+        }
+
+        .life-item:hover .life-title {
+            transform: translateY(0);
+            color: var(--primary);
+        }
+
+        .life-item:hover .life-desc {
+            opacity: 1;
+            transform: translateY(0);
+            max-height: 100px;
+            margin-top: 1rem;
+        }
+
+        /* ==========================================================================
+           5 & 6. MẶT TÍCH CỰC & TIÊU CỰC (SPLIT LAYOUT)
+           ========================================================================== */
+        .impact-section {
+            padding: 8rem 0;
+        }
+
+        .impact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .impact-col {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .impact-col-title {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: 2rem;
+        }
+
+        .positive-title { color: var(--success); }
+        .negative-title { color: var(--danger); }
+
+        .impact-card {
+            padding: 2rem;
+            position: relative;
+            transition: var(--transition-smooth);
+        }
+
+        .impact-card.positive {
+            border-left: 4px solid var(--success);
+        }
+
+        .impact-card.positive:hover {
+            box-shadow: 0 0 20px rgba(16, 185, 129, 0.2);
+            transform: translateX(10px);
+        }
+
+        .impact-card.negative {
+            border-right: 4px solid var(--danger);
+            animation: pulseWarning 3s infinite alternate;
+        }
+
+        .impact-card.negative:hover {
+            box-shadow: 0 0 25px var(--danger-glow);
+            transform: translateX(-10px);
+        }
+
+        @keyframes pulseWarning {
+            0% { border-color: rgba(239, 68, 68, 0.4); }
+            100% { border-color: rgba(239, 68, 68, 1); }
+        }
+
+        .impact-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            cursor: pointer;
+        }
+
+        .impact-icon {
+            padding: 0.8rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .positive .impact-icon { background: rgba(16, 185, 129, 0.1); color: var(--success); }
+        .negative .impact-icon { background: rgba(239, 68, 68, 0.1); color: var(--danger); }
+
+        .impact-content {
+            color: var(--text-muted);
+            overflow: hidden;
+            max-height: 0;
+            transition: max-height 0.5s ease;
+        }
+
+        .impact-card.open .impact-content {
+            max-height: 300px;
+            margin-top: 1rem;
+        }
+
+        /* ==========================================================================
+           7. INTERNET TƯƠNG LAI (FUTURISTIC)
+           ========================================================================== */
+        .future-section {
+            background: linear-gradient(to bottom, transparent, rgba(139, 92, 246, 0.05), transparent);
+            position: relative;
+        }
+
+        .particles {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            overflow: hidden;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .particle {
+            position: absolute;
+            bottom: -10px;
+            width: 4px;
+            height: 4px;
+            background: #c084fc;
+            border-radius: 50%;
+            box-shadow: 0 0 10px #c084fc;
+            animation: particleMove 5s linear infinite;
+        }
+
+        .future-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            z-index: 1;
+            position: relative;
+        }
+
+        .future-card {
+            background: rgba(17, 25, 40, 0.8);
+            border-radius: 1.5rem;
+            padding: 3rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            transition: var(--transition-smooth);
+        }
+
+        .future-card::before {
+            content: '';
+            position: absolute;
+            top: -2px; left: -2px; right: -2px; bottom: -2px;
+            background: linear-gradient(45deg, transparent, var(--secondary), transparent, var(--primary), transparent);
+            z-index: -1;
+            border-radius: 1.6rem;
+            background-size: 400%;
+            animation: borderFlow 3s linear infinite;
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+
+        .future-card:hover {
+            transform: translateY(-15px);
+        }
+
+        .future-card:hover::before {
+            opacity: 1;
+        }
+
+        .future-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            color: #fff;
+            text-shadow: 0 0 20px var(--secondary);
+        }
+
+        /* ==========================================================================
+           8. IMAGE GALLERY (MASONRY/GRID)
+           ========================================================================== */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            grid-auto-rows: 250px;
+            gap: 1.5rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 1rem;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .item-1 { grid-column: span 8; grid-row: span 2; }
+        .item-2 { grid-column: span 4; grid-row: span 1; }
+        .item-3 { grid-column: span 4; grid-row: span 1; }
+        .item-4 { grid-column: span 4; grid-row: span 1; }
+        .item-5 { grid-column: span 8; grid-row: span 1; }
+
+        .gallery-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            filter: grayscale(30%) brightness(0.8);
+        }
+
+        .gallery-item:hover .gallery-img {
+            transform: scale(1.08);
+            filter: grayscale(0%) brightness(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0,0,0,0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .zoom-icon {
+            background: rgba(255,255,255,0.2);
+            backdrop-filter: blur(5px);
+            padding: 1rem;
+            border-radius: 50%;
+            color: #fff;
+            transform: scale(0.5);
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .gallery-item:hover .zoom-icon {
+            transform: scale(1);
+        }
+
+        /* Lightbox */
+        .lightbox {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.95);
+            z-index: 2000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.4s ease;
+        }
+
+        .lightbox.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .lightbox-img {
+            max-width: 90%;
+            max-height: 90vh;
+            border-radius: 0.5rem;
+            box-shadow: 0 0 50px rgba(0,0,0,0.8);
+            transform: scale(0.9);
+            transition: transform 0.4s ease;
+        }
+
+        .lightbox.active .lightbox-img {
+            transform: scale(1);
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            color: #fff;
+            font-size: 2rem;
+            cursor: pointer;
+            background: none;
+            border: none;
+            transition: transform 0.3s;
+        }
+
+        .lightbox-close:hover {
+            transform: rotate(90deg);
+            color: var(--danger);
+        }
+
+        /* ==========================================================================
+           9. STATISTICS SECTION
+           ========================================================================== */
+        .stats-section {
+            background: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop') center/cover fixed;
+            position: relative;
+        }
+
+        .stats-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(7, 11, 25, 0.85);
+            backdrop-filter: blur(5px);
+        }
+
+        .stats-grid {
+            position: relative;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            text-align: center;
+            z-index: 1;
+        }
+
+        .stat-item {
+            padding: 2rem;
+        }
+
+        .stat-number {
+            font-size: 4rem;
+            font-weight: 800;
+            color: transparent;
+            -webkit-text-stroke: 1px var(--primary);
+            background: linear-gradient(135deg, #fff, var(--primary));
+            -webkit-background-clip: text;
+            margin-bottom: 1rem;
+            display: inline-block;
+        }
+
+        .stat-label {
+            font-size: 1.2rem;
+            color: var(--text-main);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* ==========================================================================
+           10. INTERACTIVE SECTION (TABS & ACCORDION)
+           ========================================================================== */
+        .interactive-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        /* Tabs */
+        .tabs-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .tab-headers {
+            display: flex;
+            gap: 1rem;
+            border-bottom: 2px solid var(--glass-border);
+            padding-bottom: 1rem;
+        }
+
+        .tab-btn {
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            transition: var(--transition-smooth);
+            position: relative;
+        }
+
+        .tab-btn.active {
+            color: #fff;
+            background: rgba(59, 130, 246, 0.1);
+        }
+
+        .tab-btn::after {
+            content: '';
+            position: absolute;
+            bottom: -18px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s;
+        }
+
+        .tab-btn.active::after {
+            width: 100%;
+        }
+
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .tab-content h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        /* Accordion */
+        .accordion {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .accordion-item {
+            border: 1px solid var(--glass-border);
+            border-radius: 1rem;
+            overflow: hidden;
+            background: rgba(17, 25, 40, 0.4);
+        }
+
+        .accordion-header {
+            padding: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+
+        .accordion-header:hover {
+            background: rgba(255,255,255,0.05);
+        }
+
+        .accordion-icon {
+            transition: transform 0.3s;
+        }
+
+        .accordion-item.active .accordion-icon {
+            transform: rotate(45deg);
+            color: var(--primary);
+        }
+
+        .accordion-body {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-out, padding 0.4s ease;
+            padding: 0 1.5rem;
+            color: var(--text-muted);
+        }
+
+        .accordion-item.active .accordion-body {
+            max-height: 500px;
+            padding: 0 1.5rem 1.5rem;
+        }
+
+        /* ==========================================================================
+           11. VIDEO SECTION
+           ========================================================================== */
+        .video-container {
+            position: relative;
+            border-radius: 2rem;
+            overflow: hidden;
+            aspect-ratio: 16/9;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+            border: 1px solid var(--glass-border);
+            cursor: pointer;
+            group: hover;
+        }
+
+        .video-poster {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s ease;
+        }
+
+        .video-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(7, 11, 25, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.4s ease;
+        }
+
+        .play-btn {
+            width: 80px;
+            height: 80px;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(255,255,255,0.5);
+            color: #fff;
+            position: relative;
+            transition: transform 0.3s, background 0.3s;
+        }
+
+        .play-btn::before {
+            content: '';
+            position: absolute;
+            inset: -15px;
+            border-radius: 50%;
+            border: 2px solid rgba(255,255,255,0.3);
+            animation: pulsePlay 2s infinite;
+        }
+
+        @keyframes pulsePlay {
+            0% { transform: scale(1); opacity: 1; }
+            100% { transform: scale(1.5); opacity: 0; }
+        }
+
+        .video-container:hover .video-poster {
+            transform: scale(1.05);
+        }
+
+        .video-container:hover .play-btn {
+            background: var(--primary);
+            border-color: var(--primary);
+            transform: scale(1.1);
+        }
+
+        .video-modal {
+            position: fixed;
+            inset: 0;
+            background: #000;
+            z-index: 2000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.4s;
+        }
+
+        .video-modal.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .video-wrapper {
+            width: 90%;
+            max-width: 1200px;
+            aspect-ratio: 16/9;
+            background: #111;
+            border-radius: 1rem;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .close-video {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            color: #fff;
+            font-size: 2rem;
+            cursor: pointer;
+            z-index: 2001;
+        }
+
+        /* ==========================================================================
+           12. TIMELINE INTERNET
+           ========================================================================== */
+        .timeline-section {
+            padding: 6rem 0;
+            position: relative;
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background: linear-gradient(to bottom, var(--primary), var(--secondary));
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -2px;
+            border-radius: 2px;
+        }
+
+        .timeline-progress {
+            position: absolute;
+            width: 4px;
+            background: #fff;
+            top: 0;
+            left: 50%;
+            margin-left: -2px;
+            height: 0%;
+            z-index: 1;
+            box-shadow: 0 0 15px #fff;
+            transition: height 0.1s linear;
+        }
+
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            background-color: inherit;
+            width: 50%;
+        }
+
+        .timeline-item.left { left: 0; }
+        .timeline-item.right { left: 50%; }
+
+        .timeline-dot {
+            position: absolute;
+            width: 24px;
+            height: 24px;
+            right: -12px;
+            background-color: var(--bg-dark);
+            border: 4px solid var(--primary);
+            top: 30px;
+            border-radius: 50%;
+            z-index: 2;
+            transition: all 0.4s;
+        }
+
+        .timeline-item.right .timeline-dot {
+            left: -12px;
+        }
+
+        .timeline-item:hover .timeline-dot {
+            background: var(--primary);
+            box-shadow: 0 0 15px var(--primary-glow);
+            transform: scale(1.3);
+        }
+
+        .timeline-content {
+            padding: 2rem;
+            position: relative;
+            border-radius: 1rem;
+        }
+
+        .timeline-content h3 {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-content h4 {
+            font-size: 1.2rem;
+            color: #fff;
+            margin-bottom: 1rem;
+        }
+
+        .timeline-content p {
+            color: var(--text-muted);
+        }
+
+        /* ==========================================================================
+           13. FOOTER PRO
+           ========================================================================== */
+        footer {
+            background: rgba(7, 11, 25, 0.95);
+            border-top: 1px solid var(--glass-border);
+            padding: 6rem 0 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .footer-glow {
+            position: absolute;
+            bottom: -200px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.1) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 4rem;
+            margin-bottom: 4rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .footer-col h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            color: #fff;
+            position: relative;
+            display: inline-block;
+        }
+
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 30px;
+            height: 2px;
+            background: var(--primary);
+        }
+
+        .footer-desc {
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            max-width: 300px;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid var(--glass-border);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            transition: var(--transition-smooth);
+        }
+
+        .social-icon:hover {
+            background: var(--primary);
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px var(--primary-glow);
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .footer-links a {
+            color: var(--text-muted);
+            transition: color 0.3s, padding-left 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+            padding-left: 10px;
+        }
+
+        .footer-contact li {
+            color: var(--text-muted);
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid var(--glass-border);
+            color: var(--text-muted);
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ==========================================================================
+           RESPONSIVE DESIGN
+           ========================================================================== */
+        @media (max-width: 1024px) {
+            .impact-container, .interactive-container {
+                grid-template-columns: 1fr;
+            }
+            .gallery-grid {
+                grid-auto-rows: 200px;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background: rgba(7, 11, 25, 0.98);
+                backdrop-filter: blur(20px);
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                transition: left 0.5s ease;
+                z-index: 1000;
+            }
+            .nav-links.active {
+                left: 0;
+            }
+            .timeline::after { left: 31px; }
+            .timeline-progress { left: 31px; }
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            .timeline-item.right { left: 0; }
+            .timeline-item.left .timeline-dot, 
+            .timeline-item.right .timeline-dot {
+                left: 19px;
+            }
+            .item-1, .item-2, .item-3, .item-4, .item-5 {
+                grid-column: span 12;
+            }
+            .hero h1 { font-size: 2.5rem; }
+            .btn-group { flex-direction: column; }
+            .footer-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- SVG Definitions -->
+    <svg width="0" height="0" class="hidden">
+        <defs>
+            <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:1" />
+                <stop offset="100%" style="stop-color:#8b5cf6;stop-opacity:1" />
+            </linearGradient>
+        </defs>
+    </svg>
+
+    <!-- HEADER -->
+    <header id="header">
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+                Net<span class="text-gradient">Core</span>
+            </a>
+            <nav class="nav-links" id="navLinks">
+                <a href="#home">Trang chủ</a>
+                <a href="#about">Khái niệm</a>
+                <a href="#life">Đời sống</a>
+                <a href="#impact">Tác động</a>
+                <a href="#future">Tương lai</a>
+                <a href="#gallery">Thư viện</a>
+            </nav>
+            <div class="menu-toggle" id="mobileMenu">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero" id="home">
+        <div class="hero-bg-elements">
+            <div class="circle-blur cb-1"></div>
+            <div class="circle-blur cb-2"></div>
+        </div>
+        <div class="container hero-content">
+            <h1>Mạng Lưới Toàn Cầu:<br> <span class="text-gradient">Bức Tranh Cuộc Sống Hiện Đại</span></h1>
+            <p>Internet không chỉ là một kiến trúc kỹ thuật cơ thuần túy, mà đã khắc họa sâu sắc diện mạo của nền văn minh nhân loại, mở ra một không gian đa chiều gợi lên những tiềm năng vô hạn trong sự gắn kết và phát triển.</p>
+            <div class="btn-group">
+                <a href="#about" class="btn btn-primary">
+                    Khám Phá Ngay
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                </a>
+                <a href="#video" class="btn btn-outline">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                    Xem Video
+                </a>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="mouse"><div class="wheel"></div></div>
+            <span style="font-size: 0.8rem;">Cuộn xuống</span>
+        </div>
+    </section>
+
+    <!-- INTERNET INFO -->
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title reveal">Bản Chất Của Kỷ Nguyên Số</h2>
+            <p class="section-subtitle reveal">Vượt lên trên những khái niệm vật lý khô khan, Internet được ví như một hệ sinh thái thông tin khổng lồ, làm nổi bật khát vọng chinh phục và chia sẻ tri thức của con người.</p>
+            
+            <div class="info-grid">
+                <!-- Card 1 -->
+                <div class="info-card glass-panel reveal" onclick="toggleCard(this)">
+                    <div class="info-icon">
+                        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+                    </div>
+                    <h3>Internet Là Gì?</h3>
+                    <p>Một hệ thống mạng máy tính kết nối toàn cầu, sử dụng giao thức TCP/IP để truyền tải dữ liệu, tạo ra "ngôi làng toàn cầu".</p>
+                    <button class="expand-btn">Chi tiết <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
+                    <div class="card-detail">
+                        Nó không chỉ phản ánh sự tiến bộ của khoa học công nghệ, mà còn khắc họa một không gian sinh tồn thứ hai, nơi các rào cản địa lý và văn hóa bị phá vỡ hoàn toàn, mở đường cho dòng chảy thông tin bất tận.
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="info-card glass-panel reveal" onclick="toggleCard(this)">
+                    <div class="info-icon">
+                        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    </div>
+                    <h3>Dòng Chảy Lịch Sử</h3>
+                    <p>Từ dự án ARPANET quân sự (1969) đến mạng World Wide Web, một hành trình vươn lên không ngừng nghỉ.</p>
+                    <button class="expand-btn">Chi tiết <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
+                    <div class="card-detail">
+                        Lịch sử phát triển của Internet đã làm nổi bật sức sáng tạo vô biên của nhân loại. Mỗi thập kỷ đi qua là một cột mốc đánh dấu sự chuyển mình vĩ đại từ văn bản thuần túy sang không gian tương tác đa phương tiện.
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="info-card glass-panel reveal" onclick="toggleCard(this)">
+                    <div class="info-icon">
+                        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                    </div>
+                    <h3>Vai Trò Cốt Lõi</h3>
+                    <p>Huyết mạch của nền kinh tế số, công cụ giáo dục phi biên giới và là nền tảng giao tiếp xã hội hiện đại.</p>
+                    <button class="expand-btn">Chi tiết <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
+                    <div class="card-detail">
+                        Mạng toàn cầu gợi lên sự đồng cảm sâu sắc khi kết nối hàng tỷ trái tim. Nó đóng vai trò như một chất xúc tác, đẩy nhanh quá trình toàn cầu hóa và tái định hình mọi cấu trúc xã hội truyền thống.
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="info-card glass-panel reveal" onclick="toggleCard(this)">
+                    <div class="info-icon">
+                        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"></polygon><line x1="9" y1="3" x2="9" y2="18"></line><line x1="15" y1="6" x2="15" y2="21"></line></svg>
+                    </div>
+                    <h3>Dấu Ấn Việt Nam</h3>
+                    <p>Chính thức hòa mạng năm 1997, Việt Nam nay lọt top các quốc gia có tốc độ tăng trưởng người dùng nhanh nhất.</p>
+                    <button class="expand-btn">Chi tiết <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
+                    <div class="card-detail">
+                        Việc tiếp nhận Internet vào năm 1997 đã mở ra một kỷ nguyên hội nhập rực rỡ. Bức tranh công nghệ tại Việt Nam được khắc họa bằng sự thích ứng linh hoạt và khát khao vươn mình ra biển lớn của thế hệ trẻ.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- INTERNET TRONG CUỘC SỐNG -->
+    <section id="life">
+        <div class="container">
+            <h2 class="section-title reveal">Mạng Lưới Vây Quanh Đời Sống</h2>
+            <p class="section-subtitle reveal">Từng ngóc ngách của cuộc sống hiện đại đều được bao phủ bởi tín hiệu số, tạo ra một bức tranh đa diện về sự tồn tại của con người thế kỷ 21.</p>
+
+            <div class="life-grid">
+                <div class="life-item glass-panel reveal">
+                    <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&q=80&w=800" alt="Học tập" class="life-img">
+                    <div class="life-overlay">
+                        <h3 class="life-title">Giáo Dục Khai Phóng</h3>
+                        <p class="life-desc">Phá vỡ giới hạn không gian lớp học, khơi dậy tinh thần tự học qua E-learning và mở ra chân trời tri thức bất tận cho mọi cá nhân.</p>
+                    </div>
+                </div>
+
+                <div class="life-item glass-panel reveal">
+                    <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&q=80&w=800" alt="Mạng xã hội" class="life-img">
+                    <div class="life-overlay">
+                        <h3 class="life-title">Mạng Lưới Kết Nối</h3>
+                        <p class="life-desc">Những nền tảng xã hội không chỉ truyền tải thông tin mà còn khắc họa tâm lý học hành vi, kết nối những tâm hồn đồng điệu.</p>
+                    </div>
+                </div>
+
+                <div class="life-item glass-panel reveal">
+                    <img src="https://images.unsplash.com/photo-1593642632823-8f785ba67e45?auto=format&fit=crop&q=80&w=800" alt="Làm việc" class="life-img">
+                    <div class="life-overlay">
+                        <h3 class="life-title">Không Gian Lao Động Mới</h3>
+                        <p class="life-desc">Khái niệm "Remote Work" làm nổi bật sự linh hoạt, tối ưu hóa năng suất và tái định nghĩa hoàn toàn văn hóa doanh nghiệp.</p>
+                    </div>
+                </div>
+
+                <div class="life-item glass-panel reveal">
+                    <img src="https://images.unsplash.com/photo-1600861194942-f883de0dfe96?auto=format&fit=crop&q=80&w=800" alt="Giải trí" class="life-img">
+                    <div class="life-overlay">
+                        <h3 class="life-title">Hệ Sinh Thái Giải Trí</h3>
+                        <p class="life-desc">Đánh thức mọi giác quan qua Streaming, Gaming và nội dung số, mang lại những trải nghiệm văn hóa đa dạng, phong phú.</p>
+                    </div>
+                </div>
+
+                <div class="life-item glass-panel reveal">
+                    <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&q=80&w=800" alt="Thương mại" class="life-img">
+                    <div class="life-overlay">
+                        <h3 class="life-title">Dòng Chảy Thương Mại</h3>
+                        <p class="life-desc">Thương mại điện tử vận hành trơn tru như một cỗ máy, xóa nhòa ranh giới giữa người mua và người bán trên toàn cầu.</p>
+                    </div>
+                </div>
+
+                <div class="life-item glass-panel reveal">
+                    <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800" alt="AI" class="life-img">
+                    <div class="life-overlay">
+                        <h3 class="life-title">Trí Tuệ Nhân Tạo & Data</h3>
+                        <p class="life-desc">Sự cộng sinh giữa Internet và AI gợi lên viễn cảnh về những hệ thống tự động hóa thông minh, giải quyết các bài toán vĩ mô.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BENEFITS & RISKS -->
+    <section class="impact-section" id="impact">
+        <div class="container impact-container">
+            <!-- Mặt tích cực -->
+            <div class="impact-col reveal">
+                <h2 class="impact-col-title positive-title">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                    Ánh Sáng Lan Tỏa
+                </h2>
+                <div class="impact-card glass-panel positive" onclick="toggleImpact(this)">
+                    <div class="impact-header">
+                        <div class="impact-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line></svg></div>
+                        <h3>Dân Chủ Hóa Tri Thức</h3>
+                    </div>
+                    <div class="impact-content">
+                        Làm nổi bật quyền bình đẳng trong việc tiếp cận thông tin. Bất kỳ ai, dù ở đâu, đều có thể đắm chìm trong kho tàng tri thức vĩ đại của nhân loại, từ đó tự bồi đắp giá trị bản thân.
+                    </div>
+                </div>
+
+                <div class="impact-card glass-panel positive" onclick="toggleImpact(this)">
+                    <div class="impact-header">
+                        <div class="impact-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle></svg></div>
+                        <h3>Kết Nối Đồng Cảm</h3>
+                    </div>
+                    <div class="impact-content">
+                        Mạng xã hội đã gợi lên sự gắn kết sâu sắc, tạo ra các cộng đồng hỗ trợ tinh thần, nơi tiếng nói của sự thiện lương và sẻ chia được lan tỏa với tốc độ ánh sáng.
+                    </div>
+                </div>
+
+                <div class="impact-card glass-panel positive" onclick="toggleImpact(this)">
+                    <div class="impact-header">
+                        <div class="impact-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg></div>
+                        <h3>Động Lực Đổi Mới</h3>
+                    </div>
+                    <div class="impact-content">
+                        Khắc họa rõ nét vai trò bệ phóng cho các Start-up và ý tưởng sáng tạo, thúc đẩy nền kinh tế số và kiến tạo vô số cơ hội việc làm mới cho thế hệ Z.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mặt tiêu cực -->
+            <div class="impact-col reveal" style="transition-delay: 0.2s;">
+                <h2 class="impact-col-title negative-title">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+                    Góc Khuất Của Tấm Huy Chương
+                </h2>
+                <div class="impact-card glass-panel negative" onclick="toggleImpact(this)">
+                    <div class="impact-header">
+                        <div class="impact-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12h4l2-9 5 18 3-10h6"></path></svg></div>
+                        <h3>Hội Chứng Nghiện Ảo</h3>
+                    </div>
+                    <div class="impact-content">
+                        Sự lệ thuộc quá mức vào các nền tảng mạng đang khắc họa một thế hệ cô đơn trong chính đám đông, đánh mất đi năng lực cảm nhận vẻ đẹp chân thực của đời sống thực tại.
+                    </div>
+                </div>
+
+                <div class="impact-card glass-panel negative" onclick="toggleImpact(this)">
+                    <div class="impact-header">
+                        <div class="impact-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="9" y1="15" x2="15" y2="15"></line></svg></div>
+                        <h3>Khủng Hoảng Tin Giả</h3>
+                    </div>
+                    <div class="impact-content">
+                        Fake news lan truyền như một thứ virus hiểm ác, làm lu mờ ranh giới chân - giả, gợi lên sự hoang mang tột độ và làm xói mòn niềm tin của con người vào hệ thống thông tin.
+                    </div>
+                </div>
+
+                <div class="impact-card glass-panel negative" onclick="toggleImpact(this)">
+                    <div class="impact-header">
+                        <div class="impact-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg></div>
+                        <h3>Bảo Mật Kém & Lừa Đảo</h3>
+                    </div>
+                    <div class="impact-content">
+                        Những góc tối của không gian mạng ẩn chứa rủi ro rò rỉ dữ liệu cá nhân trầm trọng, làm nổi bật tính cấp thiết của việc xây dựng một bộ áo giáp pháp lý và đạo đức số vững chắc.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FUTURE INTERNET -->
+    <section class="future-section" id="future">
+        <!-- Particles script will generate here -->
+        <div class="particles" id="particles"></div>
+        <div class="container">
+            <h2 class="section-title reveal">Kỷ Nguyên Tiếp Theo</h2>
+            <p class="section-subtitle reveal">Tương lai của Internet mang đậm tính dự báo, gợi lên một viễn cảnh viễn tưởng nơi công nghệ hòa quyện hoàn toàn vào sự tồn tại của con người.</p>
+
+            <div class="future-grid">
+                <div class="future-card reveal">
+                    <div class="future-icon">🧠</div>
+                    <h3 style="color: #fff">AI Symbiosis</h3>
+                    <p style="color: var(--text-muted)">Trí tuệ nhân tạo sẽ không chỉ là công cụ, mà trở thành người đồng hành thấu hiểu, dự đoán và đáp ứng mọi nhu cầu tâm lý và tri thức của con người.</p>
+                </div>
+                <div class="future-card reveal" style="transition-delay: 0.1s">
+                    <div class="future-icon">🥽</div>
+                    <h3 style="color: #fff">Web3 & Metaverse</h3>
+                    <p style="color: var(--text-muted)">Khắc họa một thế giới ảo song song với độ chân thực tuyệt đối, nơi định danh số và tài sản số có giá trị pháp lý mạnh mẽ tương đương đời thực.</p>
+                </div>
+                <div class="future-card reveal" style="transition-delay: 0.2s">
+                    <div class="future-icon">🏙️</div>
+                    <h3 style="color: #fff">Smart Cities</h3>
+                    <p style="color: var(--text-muted)">Vạn vật kết nối (IoT) làm nổi bật khả năng tự vận hành của các siêu đô thị, từ giao thông, năng lượng đến y tế, tối ưu hóa triệt để chất lượng sống.</p>
+                </div>
+                <div class="future-card reveal" style="transition-delay: 0.3s">
+                    <div class="future-icon">🛰️</div>
+                    <h3 style="color: #fff">Kết Nối Vũ Trụ</h3>
+                    <p style="color: var(--text-muted)">Mạng vệ tinh quỹ đạo thấp sẽ xóa bỏ hoàn toàn vùng lõm thông tin trên Trái Đất, kiến tạo một mạng lưới thông suốt bao phủ toàn bộ bề mặt hành tinh.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- IMAGE GALLERY -->
+    <section id="gallery">
+        <div class="container">
+            <h2 class="section-title reveal">Hệ Sinh Thái Hiển Hình</h2>
+            <p class="section-subtitle reveal">Những hình ảnh khắc họa rõ nét cấu trúc vật lý và không gian trừu tượng của mạng lưới vĩ đại nhất hành tinh.</p>
+            
+            <div class="gallery-grid">
+                <div class="gallery-item item-1 reveal" onclick="openLightbox(this)">
+                    <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=80&w=1200" alt="Data Center" class="gallery-img">
+                    <div class="gallery-overlay"><svg class="zoom-icon" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg></div>
+                </div>
+                <div class="gallery-item item-2 reveal" onclick="openLightbox(this)">
+                    <img src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&q=80&w=600" alt="Cáp quang biển" class="gallery-img">
+                    <div class="gallery-overlay"><svg class="zoom-icon" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg></div>
+                </div>
+                <div class="gallery-item item-3 reveal" onclick="openLightbox(this)">
+                    <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&q=80&w=600" alt="Mã code" class="gallery-img">
+                    <div class="gallery-overlay"><svg class="zoom-icon" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg></div>
+                </div>
+                <div class="gallery-item item-4 reveal" onclick="openLightbox(this)">
+                    <img src="data:image/jpeg;base64,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" alt="Kết nối mạng" class="gallery-img">
+                    <div class="gallery-overlay"><svg class="zoom-icon" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg></div>
+                </div>
+                <div class="gallery-item item-5 reveal" onclick="openLightbox(this)">
+                    <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=1200" alt="Bảng mạch" class="gallery-img">
+                    <div class="gallery-overlay"><svg class="zoom-icon" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lightbox Element -->
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+        <img src="" alt="Zoomed Image" class="lightbox-img" id="lightboxImg">
+    </div>
+
+    <!-- STATISTICS SECTION -->
+    <section class="stats-section">
+        <div class="stats-overlay"></div>
+        <div class="container stats-grid">
+            <div class="stat-item reveal">
+                <div class="stat-number" data-target="5.4">0</div>
+                <div class="stat-label">Tỷ Người Dùng</div>
+                <p style="color: var(--text-muted); margin-top: 10px;">Chiếm hơn 67% dân số toàn cầu đang kết nối liên tục.</p>
+            </div>
+            <div class="stat-item reveal" style="transition-delay: 0.2s">
+                <div class="stat-number" data-target="4.9">0</div>
+                <div class="stat-label">Tỷ Tài Khoản MXH</div>
+                <p style="color: var(--text-muted); margin-top: 10px;">Làm nổi bật mức độ thâm nhập sâu sắc của văn hóa số.</p>
+            </div>
+            <div class="stat-item reveal" style="transition-delay: 0.4s">
+                <div class="stat-number" data-target="397">0</div>
+                <div class="stat-label">Phút Online / Ngày</div>
+                <p style="color: var(--text-muted); margin-top: 10px;">Thời gian trung bình khắc họa mức độ gắn bó của nhân loại.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- INTERACTIVE SECTION (TABS & ACCORDION) -->
+    <section class="interactive-section">
+        <div class="container interactive-container">
+            <!-- Tabs System -->
+            <div class="tabs-wrapper reveal">
+                <h2 style="font-size: 2rem; margin-bottom: 1rem;">Góc Nhìn <span class="text-gradient">Đa Chiều</span></h2>
+                <div class="tab-headers">
+                    <button class="tab-btn active" onclick="openTab(event, 'tab-hoc')">Học Thuật</button>
+                    <button class="tab-btn" onclick="openTab(event, 'tab-kinh')">Kinh Tế</button>
+                    <button class="tab-btn" onclick="openTab(event, 'tab-van')">Văn Hóa</button>
+                </div>
+                <div id="tab-hoc" class="tab-content active glass-panel" style="padding: 2rem; margin-top: 1rem;">
+                    <h3>Giá trị Học thuật</h3>
+                    <p>Internet là một "Thư viện Alexandria" của thời hiện đại, không bao giờ bị thiêu rụi. Nó khắc họa sâu sắc tư tưởng mở trong giáo dục, nơi hàng triệu bài báo khoa học, luận văn và nghiên cứu được chia sẻ chỉ qua một cú nhấp chuột. Mạng lưới này gợi lên tinh thần hiếu tri bất diệt của con người.</p>
+                </div>
+                <div id="tab-kinh" class="tab-content glass-panel" style="padding: 2rem; margin-top: 1rem;">
+                    <h3>Động lực Kinh tế</h3>
+                    <p>Nền tảng số đã làm nổi bật sức mạnh của dữ liệu - thứ "dầu mỏ mới" của thế kỷ 21. Sự bùng nổ của FinTech, Blockchain và E-commerce chứng minh rằng Internet không chỉ tối ưu hóa chi phí mà còn tái định hình các học thuyết kinh tế học cổ điển, tạo ra những mô hình kinh doanh chưa từng có tiền lệ.</p>
+                </div>
+                <div id="tab-van" class="tab-content glass-panel" style="padding: 2rem; margin-top: 1rem;">
+                    <h3>Chuyển biến Văn hóa</h3>
+                    <p>Sự giao thoa văn hóa diễn ra mạnh mẽ hơn bao giờ hết. Internet gợi lên hình ảnh một nồi lẩu thập cẩm toàn cầu, nơi những giá trị truyền thống được số hóa và lan tỏa, đồng thời tạo ra áp lực đào thải những tập tục lạc hậu. Nó vừa là cầu nối, vừa là bộ lọc văn hóa khắt khe.</p>
+                </div>
+            </div>
+
+            <!-- Accordion FAQ -->
+            <div class="accordion-wrapper reveal" style="transition-delay: 0.2s">
+                <h2 style="font-size: 2rem; margin-bottom: 2rem;">Vấn Đề Trăn Trở</h2>
+                <div class="accordion">
+                    <div class="accordion-item" onclick="toggleAccordion(this)">
+                        <div class="accordion-header">
+                            Làm sao để bảo vệ bản sắc cá nhân?
+                            <svg class="accordion-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                        </div>
+                        <div class="accordion-body">
+                            Giữa đại dương thông tin, việc giữ gìn bản sắc đòi hỏi một tư duy phản biện sắc bén. Mỗi cá nhân cần tự xây dựng cho mình một màng lọc tiếp nhận, không để những xu hướng ảo đồng hóa những giá trị cốt lõi, làm nổi bật cái "tôi" chân chính thay vì những lớp mặt nạ số.
+                        </div>
+                    </div>
+                    <div class="accordion-item" onclick="toggleAccordion(this)">
+                        <div class="accordion-header">
+                            Tương lai của bảo mật dữ liệu?
+                            <svg class="accordion-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                        </div>
+                        <div class="accordion-body">
+                            Cuộc chiến bảo mật sẽ là cuộc đua giữa mã hóa lượng tử và các lỗ hổng hệ thống. Quyền riêng tư sẽ trở thành một loại tài sản xa xỉ. Điều kiện tiên quyết là sự kết hợp chặt chẽ giữa thể chế luật pháp quốc tế và ý thức tự bảo vệ của người dùng.
+                        </div>
+                    </div>
+                    <div class="accordion-item" onclick="toggleAccordion(this)">
+                        <div class="accordion-header">
+                            Internet có thực sự làm ta xa lánh nhau?
+                            <svg class="accordion-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                        </div>
+                        <div class="accordion-body">
+                            Công nghệ tự thân nó mang tính trung lập. Nó gợi lên sự xa lánh hay kết nối phụ thuộc hoàn toàn vào lăng kính sử dụng. Nếu dùng để chạy trốn thực tại, nó là ngục tù vô hình; nếu dùng để sẻ chia, nó là nhịp cầu tri kỷ.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- VIDEO SECTION -->
+    <section id="video" style="padding-top: 0;">
+        <div class="container">
+            <div class="video-container reveal" onclick="openVideoModal()">
+                <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=1200" alt="Video Cover" class="video-poster">
+                <div class="video-overlay">
+                    <div class="play-btn">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Custom Video Modal Wrapper -->
+    <div class="video-modal" id="videoModal">
+        <div class="close-video" onclick="closeVideoModal()">&times;</div>
+        <div class="video-wrapper">
+            <!-- Simulated Video Container for UI correctness -->
+            <div style="width: 100%; height: 100%; display:flex; align-items:center; justify-content:center; flex-direction:column; color:#fff;">
+                <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-bottom:20px; color:var(--primary);"><rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"></rect><line x1="7" y1="2" x2="7" y2="22"></line><line x1="17" y1="2" x2="17" y2="22"></line><line x1="2" y1="12" x2="22" y2="12"></line><line x1="2" y1="7" x2="7" y2="7"></line><line x1="2" y1="17" x2="7" y2="17"></line><line x1="17" y1="17" x2="22" y2="17"></line><line x1="17" y1="7" x2="22" y2="7"></line></svg>
+                <h2>Trải Nghiệm Nội Dung Trực Quan</h2>
+                <p style="color:var(--text-muted);">(Custom Video Player Container - Insert MP4 here)</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- TIMELINE SECTION -->
+    <section class="timeline-section" id="timeline">
+        <div class="container">
+            <h2 class="section-title reveal">Tiến Trình Thời Gian</h2>
+            <div class="timeline" id="timeline-container">
+                <div class="timeline-progress" id="timeline-progress"></div>
+                
+                <div class="timeline-item left reveal">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content glass-panel">
+                        <h3>1969</h3>
+                        <h4>Sự Khởi Thủy: ARPANET</h4>
+                        <p>Thông điệp đầu tiên "LO" được gửi đi giữa các máy tính, khắc họa khoảnh khắc lịch sử đánh dấu sự ra đời của mạng lưới thông tin đầu tiên, gợi lên khát vọng kết nối nguyên sơ nhất.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item right reveal">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content glass-panel">
+                        <h3>1990</h3>
+                        <h4>Bước Ngoặt: World Wide Web</h4>
+                        <p>Tim Berners-Lee làm nổi bật một khái niệm mang tính cách mạng. Web mở ra một hệ sinh thái mã nguồn HTML trực quan, biến những dòng code khô khan thành giao diện sinh động.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item left reveal">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content glass-panel">
+                        <h3>2000s</h3>
+                        <h4>Kỷ Nguyên Web 2.0 & MXH</h4>
+                        <p>Chuyển từ đọc sang "đọc & ghi". Facebook, YouTube xuất hiện, biến mỗi cá nhân thành một nhà sáng tạo nội dung, định hình lại toàn bộ cấu trúc giao tiếp truyền thống.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item right reveal">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content glass-panel">
+                        <h3>2020s</h3>
+                        <h4>Bùng Nổ Trí Tuệ Nhân Tạo</h4>
+                        <p>Internet hiện đại hội tụ cùng AI tạo sinh, Metaverse và vạn vật kết nối. Mạng lưới giờ đây không chỉ lưu trữ mà đã có thể "suy nghĩ" và tự tối ưu hóa một cách đáng kinh ngạc.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER PRO -->
+    <footer>
+        <div class="footer-glow"></div>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col reveal">
+                    <h3>Về NetCore</h3>
+                    <p class="footer-desc">Dự án khắc họa sâu sắc bức tranh toàn cảnh về tác động của Internet đối với nền văn minh nhân loại, làm nổi bật những giá trị cốt lõi trong kỷ nguyên số.</p>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a>
+                        <a href="#" class="social-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
+                        <a href="#" class="social-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 4.01c-1 .49-1.98.68-3 .99-1.11-1.11-2.7-1.42-4.14-1.14C12.55 4.3 11.23 6 11.23 8.5v1c-4.47-.29-8.4-2.22-11.28-5.54-.48.88-.67 2-.45 3.09.28 1.48 1.25 2.7 2.54 3.42-.92-.02-1.84-.28-2.54-.73v.06c0 1.55 1.05 3.03 2.59 3.44-.45.13-.94.16-1.4.08.43 1.34 1.58 2.29 3 2.34-1.22.99-2.72 1.45-4.24 1.39A11.77 11.77 0 0 0 6.29 20c7.55 0 11.68-6.25 11.68-11.68 0-.18 0-.36-.01-.54 1.07-.78 2-1.74 2.68-2.83-1 .45-2.07.75-3.18.88 1.15-.69 2-1.78 2.4-3.04z"></path></svg></a>
+                        <a href="#" class="social-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col reveal" style="transition-delay: 0.1s">
+                    <h3>Liên Kết Nhanh</h3>
+                    <div class="footer-links">
+                        <a href="#about"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg> Tổng quan</a>
+                        <a href="#life"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg> Trong đời sống</a>
+                        <a href="#impact"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg> Tác động xã hội</a>
+                        <a href="#timeline"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg> Lịch sử tiến hóa</a>
+                    </div>
+                </div>
+
+                <div class="footer-col reveal" style="transition-delay: 0.2s">
+                    <h3>Chủ Đề Cốt Lõi</h3>
+                    <div class="footer-links">
+                        <a href="#"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg> Web 3.0</a>
+                        <a href="#"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg> Trí tuệ nhân tạo</a>
+                        <a href="#"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg> An ninh mạng</a>
+                        <a href="#"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg> Đạo đức số</a>
+                    </div>
+                </div>
+
+                <div class="footer-col reveal" style="transition-delay: 0.3s">
+                    <h3>Thông Tin Liên Hệ</h3>
+                    <ul class="footer-contact">
+                        <li>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                            <span>Thành phố Hồ Chí Minh, Việt Nam</span>
+                        </li>
+                        <li>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                            <span>contact@netcore.vn</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 NetCore. Kiến tạo và thiết kế với góc nhìn học thuật chuyên sâu. Mọi thứ được thực hiện bởi LNL.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT SYSTEM -->
+    <script>
+        /* HEADER & NAVIGATION SYSTEM */
+        const header = document.getElementById('header');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const navLinks = document.getElementById('navLinks');
+
+        // Sticky Header Effect
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('sticky');
+            } else {
+                header.classList.remove('sticky');
+            }
+            updateTimeline();
+        });
+
+        // Mobile Menu Toggle
+        mobileMenu.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+        });
+
+        // Navigation Highlight Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                navLinks.classList.remove('active');
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        /* SCROLL REVEAL ANIMATION SYSTEM */
+        const revealElements = document.querySelectorAll('.reveal');
+        
+        const revealCallback = (entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    
+                    // Kích hoạt Counter khi Stats Section xuất hiện
+                    if (entry.target.classList.contains('stat-item')) {
+                        const target = entry.target.querySelector('.stat-number');
+                        if (target && !target.classList.contains('counted')) {
+                            startCounter(target);
+                            target.classList.add('counted');
+                        }
+                    }
+                }
+            });
+        };
+
+        const revealOptions = {
+            threshold: 0.15,
+            rootMargin: "0px 0px -50px 0px"
+        };
+
+        const revealObserver = new IntersectionObserver(revealCallback, revealOptions);
+        
+        revealElements.forEach(el => {
+            revealObserver.observe(el);
+        });
+
+        /* CLICK EXPAND SYSTEM (INFO CARDS) */
+        function toggleCard(card) {
+            const detail = card.querySelector('.card-detail');
+            const btn = card.querySelector('.expand-btn');
+            
+            if (detail.classList.contains('active')) {
+                detail.classList.remove('active');
+                btn.innerHTML = 'Chi tiết <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>';
+            } else {
+                // Đóng các card khác
+                document.querySelectorAll('.card-detail.active').forEach(d => {
+                    d.classList.remove('active');
+                    d.parentElement.querySelector('.expand-btn').innerHTML = 'Chi tiết <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>';
+                });
+                detail.classList.add('active');
+                btn.innerHTML = 'Thu gọn <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg>';
+            }
+        }
+
+        /* CLICK EXPAND SYSTEM (IMPACT CARDS) */
+        function toggleImpact(card) {
+            card.classList.toggle('open');
+        }
+
+        /* TABS SYSTEM */
+        function openTab(evt, tabId) {
+            const tabContents = document.querySelectorAll('.tab-content');
+            tabContents.forEach(tab => {
+                tab.classList.remove('active');
+            });
+
+            const tabBtns = document.querySelectorAll('.tab-btn');
+            tabBtns.forEach(btn => {
+                btn.classList.remove('active');
+            });
+
+            document.getElementById(tabId).classList.add('active');
+            evt.currentTarget.classList.add('active');
+        }
+
+        /* ACCORDION SYSTEM */
+        function toggleAccordion(item) {
+            const isActive = item.classList.contains('active');
+            
+            document.querySelectorAll('.accordion-item').forEach(acc => {
+                acc.classList.remove('active');
+            });
+
+            if (!isActive) {
+                item.classList.add('active');
+            }
+        }
+
+        /* COUNTER ANIMATION */
+        function startCounter(element) {
+            const target = parseFloat(element.getAttribute('data-target'));
+            const duration = 2000; 
+            const frameRate = 30;
+            const totalFrames = Math.round((duration / 1000) * frameRate);
+            let frame = 0;
+            
+            const isFloat = target % 1 !== 0;
+
+            const counterInterval = setInterval(() => {
+                frame++;
+                const progress = frame / totalFrames;
+                const current = target * progress;
+
+                if (isFloat) {
+                    element.innerText = current.toFixed(1);
+                } else {
+                    element.innerText = Math.round(current);
+                }
+
+                if (frame === totalFrames) {
+                    clearInterval(counterInterval);
+                    element.innerText = isFloat ? target.toFixed(1) : target;
+                }
+            }, 1000 / frameRate);
+        }
+
+        /* GALLERY INTERACTION (LIGHTBOX) */
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightboxImg');
+
+        function openLightbox(item) {
+            const imgSrc = item.querySelector('img').src;
+            // Get high res version if possible
+            const highRes = imgSrc.replace('w=600', 'w=1600').replace('w=1200', 'w=1600');
+            lightboxImg.src = highRes;
+            lightbox.classList.add('active');
+        }
+
+        function closeLightbox() {
+            lightbox.classList.remove('active');
+            setTimeout(() => {
+                lightboxImg.src = '';
+            }, 400);
+        }
+
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) {
+                closeLightbox();
+            }
+        });
+
+        /* VIDEO SYSTEM */
+        const videoModal = document.getElementById('videoModal');
+        
+        function openVideoModal() {
+            videoModal.classList.add('active');
+        }
+
+        function closeVideoModal() {
+            videoModal.classList.remove('active');
+        }
+
+        videoModal.addEventListener('click', (e) => {
+            if (e.target === videoModal) {
+                closeVideoModal();
+            }
+        });
+
+        /* TIMELINE SCROLL SYSTEM */
+        const timelineContainer = document.getElementById('timeline-container');
+        const timelineProgress = document.getElementById('timeline-progress');
+
+        function updateTimeline() {
+            if(!timelineContainer) return;
+            const rect = timelineContainer.getBoundingClientRect();
+            const viewportHeight = window.innerHeight;
+            
+            // Tính toán vị trí khi người dùng cuộn qua Timeline
+            if (rect.top < viewportHeight / 2 && rect.bottom > 0) {
+                let progress = ((viewportHeight / 2 - rect.top) / rect.height) * 100;
+                progress = Math.max(0, Math.min(100, progress));
+                timelineProgress.style.height = `${progress}%`;
+            } else if (rect.top >= viewportHeight / 2) {
+                timelineProgress.style.height = '0%';
+            } else if (rect.bottom <= 0) {
+                timelineProgress.style.height = '100%';
+            }
+        }
+
+        /* PARTICLE ANIMATION GENERATOR (FUTURE SECTION) */
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = 20;
+
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                
+                // Random vị trí và thời gian
+                const size = Math.random() * 5 + 2;
+                const left = Math.random() * 100;
+                const duration = Math.random() * 10 + 5;
+                const delay = Math.random() * 5;
+
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                particle.style.left = `${left}%`;
+                particle.style.animationDuration = `${duration}s`;
+                particle.style.animationDelay = `${delay}s`;
+
+                particlesContainer.appendChild(particle);
+            }
+        }
+
+        // Initialize elements
+        document.addEventListener('DOMContentLoaded', () => {
+            createParticles();
+            setTimeout(() => {
+                document.querySelectorAll('.reveal').forEach(el => {
+                    if(el.getBoundingClientRect().top < window.innerHeight) {
+                        el.classList.add('active');
+                    }
+                });
+            }, 100);
+        });
+
+    </script>
+</body>
+</html>
