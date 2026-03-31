@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SPORTS WORLD – Trung Tâm Thể Thao Đỉnh Cao</title>
+  <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/857/857455.png" type="image/png" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&family=Poppins:wght@300;400;600;800&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <style>
+    /* ===== CSS VARIABLES ===== */
+    :root {
+      --neon-blue:   #00cfff;
+      --neon-purple: #b300ff;
+      --neon-pink:   #ff0099;
+      --neon-green:  #00ff88;
+      --bg-dark:     #050510;
+      --bg-card:     #0d0d24;
+      --bg-glass:    rgba(255,255,255,0.05);
+      --text-light:  #e0e6ff;
+      --text-dim:    #7a85b0;
+      --border-glow: rgba(0,207,255,0.4);
+      --font-main:   'Poppins', sans-serif;
+      --font-title:  'Montserrat', sans-serif;
+      --font-accent: 'Rajdhani', sans-serif;
+    }
+
+    /* ===== RESET & BASE ===== */
+    *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg-dark);
+      color: var(--text-light);
+      font-family: var(--font-main);
+      overflow-x: hidden;
+    }
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; display: block; }
+
+    /* ===== SCROLLBAR ===== */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: #090920; }
+    ::-webkit-scrollbar-thumb { background: var(--neon-blue); border-radius: 3px; }
+
+    /* ===== KEYFRAMES ===== */
+    @keyframes rgbBorder {
+      0%   { border-color: var(--neon-blue); box-shadow: 0 0 18px var(--neon-blue); }
+      33%  { border-color: var(--neon-purple); box-shadow: 0 0 18px var(--neon-purple); }
+      66%  { border-color: var(--neon-pink); box-shadow: 0 0 18px var(--neon-pink); }
+      100% { border-color: var(--neon-blue); box-shadow: 0 0 18px var(--neon-blue); }
+    }
+    @keyframes rgbText {
+      0%   { color: var(--neon-blue); }
+      33%  { color: var(--neon-purple); }
+      66%  { color: var(--neon-pink); }
+      100% { color: var(--neon-blue); }
+    }
+    @keyframes gradientBG {
+      0%   { background-position: 0% 50%; }
+      50%  { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    @keyframes floatUp {
+      0%, 100% { transform: translateY(0); }
+      50%       { transform: translateY(-10px); }
+    }
+    @keyframes pulseGlow {
+      0%, 100% { box-shadow: 0 0 10px var(--neon-blue), 0 0 30px rgba(0,207,255,0.3); }
+      50%       { box-shadow: 0 0 25px var(--neon-blue), 0 0 60px rgba(0,207,255,0.6); }
+    }
+    @keyframes lightRun {
+      0%   { left: -100%; }
+      100% { left: 200%; }
+    }
+    @keyframes fadeInUp {
+      from { opacity:0; transform: translateY(40px); }
+      to   { opacity:1; transform: translateY(0); }
+    }
+    @keyframes slideInLeft {
+      from { opacity:0; transform: translateX(-60px); }
+      to   { opacity:1; transform: translateX(0); }
+    }
+    @keyframes neonPulse {
+      0%, 100% { text-shadow: 0 0 8px var(--neon-blue), 0 0 20px var(--neon-blue); }
+      50%       { text-shadow: 0 0 20px var(--neon-blue), 0 0 50px var(--neon-blue), 0 0 80px var(--neon-purple); }
+    }
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+    @keyframes barLoad {
+      0%   { width: 0; }
+      100% { width: 100%; }
+    }
+    @keyframes typewriter {
+      from { width: 0; }
+      to   { width: 100%; }
+    }
+    @keyframes blink {
+      50% { border-color: transparent; }
+    }
+    @keyframes particleFloat {
+      0%   { transform: translateY(0) translateX(0) scale(1); opacity: 0.7; }
+      100% { transform: translateY(-120vh) translateX(30px) scale(0.3); opacity: 0; }
+    }
+
+    /* ===== UTILITY ===== */
+    .section-title {
+      font-family: var(--font-title);
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 900;
+      text-align: center;
+      margin-bottom: 0.5rem;
+      animation: neonPulse 3s ease-in-out infinite;
+      color: var(--neon-blue);
+    }
+    .section-
